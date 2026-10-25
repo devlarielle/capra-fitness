@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Capra Fitness — Show up. We'll count it.</title>
+  <meta name="description" content="Capra Fitness member site: class schedule, membership plans, and automatic check-in tracking with the 20-day free shirt reward.">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-bar">Demo build for Capra Fitness &mdash; sample content, prices and members. Check-ins are saved only in your browser.</div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Capra Fitness home">
+        <img src="assets/logo.png" alt="" width="44" height="41">
+        <span>Capra<br>Fitness</span>
+      </a>
+      <nav class="nav" aria-label="Main">
+        <a href="#checkin">Check-in</a>
+        <a href="#progress">Progress</a>
+        <a href="#plans">Plans</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#staff">Staff</a>
+      </nav>
+      <a class="btn btn-small" href="#checkin">Check in</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Capra Fitness</p>
+          <h1>Show up.<br>We'll count&nbsp;it.</h1>
+          <p class="lede">Check in at the front desk in seconds. Your days add up automatically, and at 20 days there is a free shirt waiting for you.</p>
+          <div class="hero-actions">
+            <a class="btn btn-light" href="#checkin">Check in now</a>
+            <a class="btn btn-ghost" href="#plans">See plans</a>
+          </div>
+        </div>
+        <img class="hero-logo" src="assets/logo-cream.png" alt="Capra Fitness cf logo" width="692" height="643">
+      </div>
+    </section>
+
+    <section class="section" id="checkin">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Daily check-in</p>
+          <h2>Pick your name.<br>That's it.</h2>
+          <p class="muted">No more typing your name into a form and hoping it gets counted. Search for your name, tap it, and check in. One check-in per day, so the count always means real days trained.</p>
+          <ul class="ticks">
+            <li>Autocomplete from the member list, so no spelling mistakes</li>
+            <li>One check-in per member per day, automatically</li>
+            <li>Progress to the free shirt updates instantly</li>
+          </ul>
+        </div>
+
+        <div class="card checkin-card">
+          <p class="today" id="todayLabel"></p>
+          <label for="nameInput" class="label">Your name</label>
+          <div class="combo">
+            <input id="nameInput" type="text" inputmode="search" autocomplete="off" placeholder="Start typing, e.g. Andrew"
+                   role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list">
+            <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+          </div>
+          <button id="checkinBtn" class="btn btn-full" type="button" disabled>Check in</button>
+          <div id="result" class="result" aria-live="polite"></div>
+          <p class="hint">Try <strong>Andrew</strong>: he's at 19 days, so today's check-in earns the shirt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="progress">
+      <div class="container">
+        <p class="eyebrow">Live progress board</p>
+        <h2>Who's closest to the shirt</h2>
+        <p class="muted narrow">This replaces the hand-typed tally. It's generated from the check-ins, so it's always current and always right.</p>
+        <div class="stats" id="stats"></div>
+        <ol class="board" id="board"></ol>
+      </div>
+    </section>
+
+    <section class="section" id="plans">
+      <div class="container">
+        <p class="eyebrow">Membership</p>
+        <h2>Plans</h2>
+        <p class="muted narrow">Sample rates for the demo. These will be replaced with Capra Fitness' real prices.</p>
+        <div class="plans">
+          <article class="card plan">
+            <h3>Walk-in</h3>
+            <p class="price">₱120<span>/ day</span></p>
+            <ul><li>Single-day gym access</li><li>No commitment</li></ul>
+          </article>
+          <article class="card plan plan-featured">
+            <p class="badge">Most popular</p>
+            <h3>Monthly</h3>
+            <p class="price">₱999<span>/ month</span></p>
+            <ul><li>Unlimited gym access</li><li>Counts toward the 20-day shirt</li><li>Group classes included</li></ul>
+          </article>
+          <article class="card plan">
+            <h3>Quarterly</h3>
+            <p class="price">₱2,700<span>/ 3 months</span></p>
+            <ul><li>Everything in Monthly</li><li>Save compared to paying monthly</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt" id="schedule">
+      <div class="container">
+        <p class="eyebrow">Classes</p>
+        <h2>This week</h2>
+        <p class="muted narrow">Sample schedule for the demo.</p>
+        <div class="schedule" role="table" aria-label="Weekly class schedule">
+          <div class="row head" role="row"><span role="columnheader">Day</span><span role="columnheader">Time</span><span role="columnheader">Class</span></div>
+          <div class="row" role="row"><span>Mon / Wed / Fri</span><span>6:00 AM</span><span>Strength Circuit</span></div>
+          <div class="row" role="row"><span>Mon / Wed / Fri</span><span>6:00 PM</span><span>Open Floor Coaching</span></div>
+          <div class="row" role="row"><span>Tue / Thu</span><span>6:30 AM</span><span>Conditioning</span></div>
+          <div class="row" role="row"><span>Tue / Thu</span><span>7:00 PM</span><span>Mobility &amp; Core</span></div>
+          <div class="row" role="row"><span>Saturday</span><span>9:00 AM</span><span>Community Workout</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="staff">
+      <div class="container">
+        <p class="eyebrow">Staff view</p>
+        <h2>Front desk tools</h2>
+        <p class="muted narrow">What the staff would use instead of a spreadsheet. In the real version this sits behind a staff login.</p>
+
+        <div class="staff-grid">
+          <div class="card">
+            <h3>Today's check-ins</h3>
+            <ul class="today-list" id="todayList"></ul>
+            <h3 class="mt">Last 7 days</h3>
+            <div class="bars" id="weekBars" aria-label="Check-ins per day for the last 7 days"></div>
+          </div>
+          <div class="card">
+            <h3>Add a member</h3>
+            <form id="addForm" class="add-form">
+              <label for="newName" class="label">Full name</label>
+              <input id="newName" type="text" autocomplete="off" placeholder="e.g. Maria Santos" required>
+              <button class="btn" type="submit">Add member</button>
+            </form>
+            <p class="form-msg" id="addMsg" aria-live="polite"></p>
+            <button id="resetBtn" class="link-btn" type="button">Reset demo data</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="members">
+            <thead><tr><th>Member</th><th>ID</th><th>Days</th><th>Shirt</th><th>Actions</th></tr></thead>
+            <tbody id="memberRows"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="brand brand-light">
+        <img src="assets/logo-cream.png" alt="" width="44" height="41">
+        <span>Capra<br>Fitness</span>
+      </div>
+      <div>
+        <p class="foot-title">Visit</p>
+        <p>[Gym address]<br>[City]</p>
+      </div>
+      <div>
+        <p class="foot-title">Hours</p>
+        <p>[Mon–Sat hours]<br>[Sunday hours]</p>
+      </div>
+      <div>
+        <p class="foot-title">Contact</p>
+        <p>[Phone number]<br>[Facebook / Instagram]</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
