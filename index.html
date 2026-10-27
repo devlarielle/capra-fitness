@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Capra Fitness — Show up. We'll count it.</title>
-  <meta name="description" content="Capra Fitness member site: class schedule, membership plans, and automatic check-in tracking with the 20-day free shirt reward.">
+  <meta name="description" content="Capra Fitness: CF Project free shirt challenge, pickleball open play and court rental, membership plans and class schedule.">
   <meta name="theme-color" content="#0b0b0b">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="demo-bar">Demo build for Capra Fitness &mdash; sample content, prices and members. Check-ins are saved only in your browser.</div>
+  <div class="demo-bar">
+    Demo build with sample content. Jump to:
+    <a href="index.html">Public site</a> &middot; <a href="member.html">Member area</a> &middot; <a href="desk.html">Front desk</a>
+  </div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -22,13 +25,13 @@
         <span>Capra<br>Fitness</span>
       </a>
       <nav class="nav" aria-label="Main">
-        <a href="#checkin">Check-in</a>
-        <a href="#progress">Progress</a>
+        <a href="#cf-project">CF Project</a>
+        <a href="#pickleball">Pickleball</a>
         <a href="#plans">Plans</a>
         <a href="#schedule">Schedule</a>
-        <a href="#staff">Staff</a>
+        <a href="#visit">Visit</a>
       </nav>
-      <a class="btn btn-small" href="#checkin">Check in</a>
+      <a class="btn btn-small" href="member.html">Member login</a>
     </div>
   </header>
 
@@ -38,51 +41,95 @@
         <div class="hero-copy">
           <p class="eyebrow">Capra Fitness</p>
           <h1>Show up.<br>We'll count&nbsp;it.</h1>
-          <p class="lede">Check in at the front desk in seconds. Your days add up automatically, and at 20 days there is a free shirt waiting for you.</p>
+          <p class="lede">Train with us, scan in at the gym, and watch your points add up. Hit 20 and a free CF shirt is yours through CF Project.</p>
           <div class="hero-actions">
-            <a class="btn btn-light" href="#checkin">Check in now</a>
-            <a class="btn btn-ghost" href="#plans">See plans</a>
+            <a class="btn btn-light" href="#cf-project">How CF Project works</a>
+            <a class="btn btn-ghost" href="#pickleball">Play pickleball</a>
           </div>
         </div>
         <img class="hero-logo" src="assets/logo-cream.png" alt="Capra Fitness cf logo" width="692" height="643">
       </div>
     </section>
 
-    <section class="section" id="checkin">
-      <div class="container two-col">
-        <div>
-          <p class="eyebrow">Daily check-in</p>
-          <h2>Pick your name.<br>That's it.</h2>
-          <p class="muted">No more typing your name into a form and hoping it gets counted. Search for your name, tap it, and check in. One check-in per day, so the count always means real days trained.</p>
-          <ul class="ticks">
-            <li>Autocomplete from the member list, so no spelling mistakes</li>
-            <li>One check-in per member per day, automatically</li>
-            <li>Progress to the free shirt updates instantly</li>
-          </ul>
-        </div>
-
-        <div class="card checkin-card">
-          <p class="today" id="todayLabel"></p>
-          <label for="nameInput" class="label">Your name</label>
-          <div class="combo">
-            <input id="nameInput" type="text" inputmode="search" autocomplete="off" placeholder="Start typing, e.g. Andrew"
-                   role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list">
-            <ul id="suggestions" class="suggestions" role="listbox" hidden></ul>
+    <section class="section" id="cf-project">
+      <div class="container">
+        <div class="cf-grid">
+          <div class="cf-copy">
+            <p class="eyebrow">CF Project</p>
+            <h2>Show up.<br>Earn the shirt.</h2>
+            <p class="lead">A fitness challenge created to keep you consistent, motivated and showing up. Complete your sessions and earn exclusive CF and Capra Gang T-shirts as your reward.</p>
+            <ul class="ticks">
+              <li><strong>Project 20:</strong> 1 gym session = 1 point. 20 points = a free T-shirt from CF Gear.</li>
+              <li>You can also earn points by winning games.</li>
+              <li>Almost 500 shirts given away since season 1.</li>
+              <li><strong>No more paper card.</strong> Scan the QR code at the gym and your point is added. Your card lives on your phone, so it can't get lost.</li>
+            </ul>
+            <div class="hero-actions cf-actions">
+              <a class="btn" href="member.html">See my card</a>
+            </div>
+            <p class="hint">Season dates and eligibility are set by the gym.</p>
           </div>
-          <button id="checkinBtn" class="btn btn-full" type="button" disabled>Check in</button>
-          <div id="result" class="result" aria-live="polite"></div>
-          <p class="hint">Try <strong>Andrew</strong>: he's at 19 days, so today's check-in earns the shirt.</p>
+          <div class="cf-visual">
+            <div id="p20Preview" class="p20-preview"></div>
+            <p class="hint center">Sample card at 12 points.</p>
+            <img class="cf-shirts" src="assets/cf-shirts.jpg" alt="The black CF shirt, front with the cf logo and back reading Nobody cares; work harder." width="732" height="566" loading="lazy">
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section section-alt" id="progress">
+    <section class="section section-alt" id="pickleball">
       <div class="container">
-        <p class="eyebrow">Live progress board</p>
-        <h2>Who's closest to the shirt</h2>
-        <p class="muted narrow">This replaces the hand-typed tally. It's generated from the check-ins, so it's always current and always right.</p>
-        <div class="stats" id="stats"></div>
-        <ol class="board" id="board"></ol>
+        <p class="eyebrow">Pickleball</p>
+        <h2>Open play<br>&amp; court rental</h2>
+        <div class="pb-grid">
+          <div class="pb-info">
+            <article class="card">
+              <h3>Open Play for Beginners</h3>
+              <ul class="facts">
+                <li><b>Monday</b> 6:00 PM &ndash; 10:00 PM</li>
+                <li><b>&#8369;100</b> per head</li>
+                <li>Guided by <b>Coach Stan</b></li>
+                <li><b>12 slots</b> only</li>
+                <li>Paddles for rent <b>+&#8369;30</b></li>
+                <li>Covers official rules, serving tips and conditioning tips</li>
+              </ul>
+              <div class="slots" aria-live="polite">
+                <p class="slots-text" id="pbSlotsText"></p>
+                <div class="track"><div class="fill" id="pbSlotsFill"></div></div>
+              </div>
+            </article>
+            <article class="card">
+              <h3>Court rental</h3>
+              <p class="muted">Rent the court for your group. Hourly rate: <strong>[court rate]</strong> (to be filled in by the gym).</p>
+            </article>
+          </div>
+
+          <div class="card pb-form-card" id="reserve">
+            <h3>Reserve</h3>
+            <p class="muted">Pick open play or a court rental. No more messaging to ask if there are slots left.</p>
+            <form id="pbForm" class="add-form" novalidate>
+              <fieldset class="seg">
+                <legend class="label">I want to</legend>
+                <label><input type="radio" name="pbType" value="open" checked><span>Join open play</span></label>
+                <label><input type="radio" name="pbType" value="court"><span>Rent the court</span></label>
+              </fieldset>
+              <p class="muted pb-note" id="pbOpenNote"></p>
+              <div class="court-fields" id="pbCourtFields" hidden>
+                <div><label for="pbDate" class="label">Date</label><input id="pbDate" type="date"></div>
+                <div><label for="pbTime" class="label">Start time</label><select id="pbTime"></select></div>
+                <div><label for="pbHours" class="label">Hours</label><select id="pbHours"><option value="1">1 hour</option><option value="2" selected>2 hours</option><option value="3">3 hours</option></select></div>
+              </div>
+              <div class="two-fields">
+                <div><label for="pbName" class="label">Full name</label><input id="pbName" type="text" autocomplete="name" placeholder="e.g. Maria Santos"></div>
+                <div><label for="pbPhone" class="label">Mobile number</label><input id="pbPhone" type="text" inputmode="tel" autocomplete="tel" placeholder="09XX XXX XXXX"></div>
+              </div>
+              <button class="btn" type="submit" id="pbSubmit">Reserve my slot</button>
+            </form>
+            <p class="form-msg" id="pbMsg" aria-live="polite"></p>
+            <p class="hint">Demo: reservations are saved in this browser only. They show up on the Front desk page.</p>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -94,18 +141,18 @@
         <div class="plans">
           <article class="card plan">
             <h3>Walk-in</h3>
-            <p class="price">₱120<span>/ day</span></p>
+            <p class="price">&#8369;120<span>/ day</span></p>
             <ul><li>Single-day gym access</li><li>No commitment</li></ul>
           </article>
           <article class="card plan plan-featured">
             <p class="badge">Most popular</p>
             <h3>Monthly</h3>
-            <p class="price">₱999<span>/ month</span></p>
-            <ul><li>Unlimited gym access</li><li>Counts toward the 20-day shirt</li><li>Group classes included</li></ul>
+            <p class="price">&#8369;999<span>/ month</span></p>
+            <ul><li>Unlimited gym access</li><li>Group classes included</li></ul>
           </article>
           <article class="card plan">
             <h3>Quarterly</h3>
-            <p class="price">₱2,700<span>/ 3 months</span></p>
+            <p class="price">&#8369;2,700<span>/ 3 months</span></p>
             <ul><li>Everything in Monthly</li><li>Save compared to paying monthly</li></ul>
           </article>
         </div>
@@ -116,11 +163,11 @@
       <div class="container">
         <p class="eyebrow">Classes</p>
         <h2>This week</h2>
-        <p class="muted narrow">Sample schedule for the demo.</p>
+        <p class="muted narrow">Sample schedule for the demo, except pickleball open play, which comes from the gym's poster.</p>
         <div class="schedule" role="table" aria-label="Weekly class schedule">
           <div class="row head" role="row"><span role="columnheader">Day</span><span role="columnheader">Time</span><span role="columnheader">Class</span></div>
           <div class="row" role="row"><span>Mon / Wed / Fri</span><span>6:00 AM</span><span>Strength Circuit</span></div>
-          <div class="row" role="row"><span>Mon / Wed / Fri</span><span>6:00 PM</span><span>Open Floor Coaching</span></div>
+          <div class="row" role="row"><span>Mon</span><span>6:00 PM</span><span>Pickleball Open Play (beginners)</span></div>
           <div class="row" role="row"><span>Tue / Thu</span><span>6:30 AM</span><span>Conditioning</span></div>
           <div class="row" role="row"><span>Tue / Thu</span><span>7:00 PM</span><span>Mobility &amp; Core</span></div>
           <div class="row" role="row"><span>Saturday</span><span>9:00 AM</span><span>Community Workout</span></div>
@@ -128,36 +175,35 @@
       </div>
     </section>
 
-    <section class="section" id="staff">
-      <div class="container">
-        <p class="eyebrow">Staff view</p>
-        <h2>Front desk tools</h2>
-        <p class="muted narrow">What the staff would use instead of a spreadsheet. In the real version this sits behind a staff login.</p>
-
-        <div class="staff-grid">
-          <div class="card">
-            <h3>Today's check-ins</h3>
-            <ul class="today-list" id="todayList"></ul>
-            <h3 class="mt">Last 7 days</h3>
-            <div class="bars" id="weekBars" aria-label="Check-ins per day for the last 7 days"></div>
-          </div>
-          <div class="card">
-            <h3>Add a member</h3>
-            <form id="addForm" class="add-form">
-              <label for="newName" class="label">Full name</label>
-              <input id="newName" type="text" autocomplete="off" placeholder="e.g. Maria Santos" required>
-              <button class="btn" type="submit">Add member</button>
-            </form>
-            <p class="form-msg" id="addMsg" aria-live="polite"></p>
-            <button id="resetBtn" class="link-btn" type="button">Reset demo data</button>
-          </div>
+    <section class="section" id="join">
+      <div class="container two-col">
+        <div>
+          <p class="eyebrow">Join</p>
+          <h2>Want in?</h2>
+          <p class="muted">Leave your name and number and the front desk will reach out, or just walk in and ask. Already a member? <a href="member.html"><strong>Log in here</strong></a> to see your Project 20 card and check in.</p>
         </div>
+        <div class="card">
+          <form id="joinForm" class="add-form" novalidate>
+            <label for="jName" class="label">Full name</label>
+            <input id="jName" type="text" autocomplete="name" placeholder="e.g. Maria Santos" required>
+            <label for="jPhone" class="label">Mobile number</label>
+            <input id="jPhone" type="text" inputmode="tel" autocomplete="tel" placeholder="09XX XXX XXXX" required>
+            <button class="btn" type="submit">Send request</button>
+          </form>
+          <p class="form-msg" id="joinMsg" aria-live="polite"></p>
+          <p class="hint">Demo: requests are saved in this browser only. They show up on the Front desk page.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="table-wrap">
-          <table class="members">
-            <thead><tr><th>Member</th><th>ID</th><th>Days</th><th>Shirt</th><th>Actions</th></tr></thead>
-            <tbody id="memberRows"></tbody>
-          </table>
+    <section class="section section-alt" id="visit">
+      <div class="container">
+        <p class="eyebrow">Visit</p>
+        <h2>Find us</h2>
+        <div class="visit-grid">
+          <div class="card"><h3>Address</h3><p>[Gym address]<br>[City]</p></div>
+          <div class="card"><h3>Hours</h3><p>[Mon–Sat hours]<br>[Sunday hours]</p></div>
+          <div class="card"><h3>Contact</h3><p>[Phone number]<br>[Facebook / Instagram]</p></div>
         </div>
       </div>
     </section>
@@ -170,20 +216,21 @@
         <span>Capra<br>Fitness</span>
       </div>
       <div>
-        <p class="foot-title">Visit</p>
-        <p>[Gym address]<br>[City]</p>
+        <p class="foot-title">Members</p>
+        <p><a href="member.html">Member login</a></p>
       </div>
       <div>
-        <p class="foot-title">Hours</p>
-        <p>[Mon–Sat hours]<br>[Sunday hours]</p>
+        <p class="foot-title">Explore</p>
+        <p><a href="#cf-project">CF Project</a><br><a href="#pickleball">Pickleball</a><br><a href="#plans">Plans</a></p>
       </div>
       <div>
-        <p class="foot-title">Contact</p>
-        <p>[Phone number]<br>[Facebook / Instagram]</p>
+        <p class="foot-title">Questions?</p>
+        <p>Ask the front desk.</p>
       </div>
     </div>
   </footer>
 
-  <script src="app.js"></script>
+  <script src="shared.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>

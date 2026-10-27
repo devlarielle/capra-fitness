@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Front desk — Capra Fitness</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-bar">
+    Demo build with sample content. Jump to:
+    <a href="index.html">Public site</a> &middot; <a href="member.html">Member area</a> &middot; <a href="desk.html">Front desk</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="desk.html" aria-label="Capra Fitness front desk">
+        <img src="assets/logo.png" alt="" width="44" height="41">
+        <span>Capra<br>Front desk</span>
+      </a>
+      <button id="logoutBtn" class="btn btn-small" type="button" hidden>Log out</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- Staff login -->
+    <section id="gate" class="container auth-wrap" hidden>
+      <div class="card auth-card">
+        <p class="eyebrow">Staff only</p>
+        <h1 class="page-title">Front desk</h1>
+        <p class="muted">Enter the staff passcode to continue.</p>
+        <form id="gateForm" novalidate>
+          <label for="passcode" class="label">Staff passcode</label>
+          <input id="passcode" type="password" autocomplete="current-password" placeholder="Passcode" required>
+          <button class="btn btn-full" type="submit">Open front desk</button>
+        </form>
+        <p class="form-msg error" id="gateMsg" aria-live="polite"></p>
+        <div class="demo-box">
+          <strong>Demo passcode</strong><br>
+          <code>capra2026</code><br>
+          The real version uses individual staff accounts with hashed passwords.
+        </div>
+      </div>
+    </section>
+
+    <!-- Desk -->
+    <section id="desk" class="container" hidden>
+      <div class="desk-top">
+        <div class="card qr-card">
+          <p class="eyebrow">Today's check-in QR</p>
+          <div class="qr-flex">
+            <div class="qr-box" id="qrBox"></div>
+            <div>
+              <p class="qr-code" id="qrCode"></p>
+              <p class="muted" id="qrDate"></p>
+              <p class="muted">Display this at the entrance. Members scan it with their phone camera. A new code is made every day.</p>
+              <div class="btn-row">
+                <button class="btn" type="button" id="qrFullBtn">Show full screen</button>
+                <button class="btn btn-ghost-dark" type="button" id="qrPrintBtn">Print</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="stats stats-col" id="stats"></div>
+      </div>
+
+      <div class="staff-grid">
+        <div class="card">
+          <h3>Today's check-ins</h3>
+          <ul class="today-list" id="todayList"></ul>
+          <h3 class="mt">Last 7 days</h3>
+          <div class="bars" id="weekBars" aria-label="Check-ins per day for the last 7 days"></div>
+        </div>
+        <div class="card">
+          <h3>Add a member</h3>
+          <form id="addForm" class="add-form" novalidate>
+            <label for="newName" class="label">Full name</label>
+            <input id="newName" type="text" autocomplete="off" placeholder="e.g. Maria Santos" required>
+            <button class="btn" type="submit">Add member</button>
+          </form>
+          <div id="addResult" aria-live="polite"></div>
+          <h3 class="mt">Join requests <span class="count-chip" id="reqCount">0</span></h3>
+          <ul class="req-list" id="reqList"></ul>
+        </div>
+      </div>
+
+      <h3 class="section-h">Pickleball</h3>
+      <div class="card">
+        <p class="pb-summary" id="pbSummary"></p>
+        <ul class="req-list" id="pbList"></ul>
+      </div>
+
+      <h3 class="section-h">Closest to the shirt</h3>
+      <ol class="board" id="board"></ol>
+
+      <h3 class="section-h">All members</h3>
+      <p class="form-msg" id="tableMsg" aria-live="polite"></p>
+      <div class="table-wrap">
+        <table class="members">
+          <thead><tr><th>Member</th><th>ID</th><th>Points</th><th>Shirt</th><th>Actions</th></tr></thead>
+          <tbody id="memberRows"></tbody>
+        </table>
+      </div>
+      <p><button id="resetBtn" class="link-btn" type="button">Reset demo data</button></p>
+    </section>
+  </main>
+
+  <!-- Full-screen QR (also what gets printed) -->
+  <div class="qr-full" id="qrFull" hidden role="dialog" aria-modal="true" aria-label="Check-in QR code">
+    <div class="qr-full-inner">
+      <img src="assets/logo.png" alt="" class="qr-full-logo" width="72" height="67">
+      <h2>Scan to check in</h2>
+      <div class="qr-box qr-box-big" id="qrBoxBig"></div>
+      <p class="qr-code" id="qrCodeBig"></p>
+      <p id="qrDateBig"></p>
+      <p class="qr-full-help">Open your phone camera, point it at the code, and tap the link.</p>
+      <div class="btn-row no-print">
+        <button class="btn" type="button" id="qrFullPrint">Print</button>
+        <button class="btn btn-ghost-dark" type="button" id="qrFullClose">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/qrcode.js"></script>
+  <script src="shared.js"></script>
+  <script src="desk.js"></script>
+</body>
+</html>

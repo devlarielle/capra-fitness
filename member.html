@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Member area — Capra Fitness</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0b0b0b">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,700;1,800;1,900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-bar">
+    Demo build with sample content. Jump to:
+    <a href="index.html">Public site</a> &middot; <a href="member.html">Member area</a> &middot; <a href="desk.html">Front desk</a>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Capra Fitness public site">
+        <img src="assets/logo.png" alt="" width="44" height="41">
+        <span>Capra<br>Fitness</span>
+      </a>
+      <button id="logoutBtn" class="btn btn-small" type="button" hidden>Log out</button>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <!-- Login -->
+    <section id="loginView" class="container auth-wrap" hidden>
+      <div class="card auth-card">
+        <p class="eyebrow">Member area</p>
+        <h1 class="page-title">Log in</h1>
+        <p class="muted">Use your member ID and PIN from the front desk.</p>
+        <form id="loginForm" novalidate>
+          <label for="memberId" class="label">Member ID</label>
+          <input id="memberId" type="text" autocomplete="username" autocapitalize="characters" placeholder="CAP-0001" required>
+          <label for="memberPin" class="label mt-s">PIN</label>
+          <input id="memberPin" type="password" inputmode="numeric" autocomplete="current-password" placeholder="4-digit PIN" maxlength="8" required>
+          <button class="btn btn-full" type="submit" id="loginBtn">Log in</button>
+        </form>
+        <p class="form-msg error" id="loginMsg" aria-live="polite"></p>
+        <p class="hint">Forgot your PIN? Ask the front desk to reset it.</p>
+        <div class="demo-box">
+          <strong>Demo login</strong><br>
+          ID <code>CAP-0002</code> (Andrew), PIN <code>1234</code>.<br>
+          Andrew is at 19 points, so his next check-in completes Project 20.
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashView" class="container dash" hidden>
+      <div class="dash-head">
+        <p class="eyebrow" id="memberTag"></p>
+        <h1 class="page-title" id="greeting"></h1>
+      </div>
+
+      <div class="dash-grid">
+        <div class="card" id="progressCard">
+          <p class="label">Your Project 20 card</p>
+          <div id="p20Holder"></div>
+          <p class="big-count"><b id="countNum">0</b><span> / 20 points</span></p>
+          <p class="muted" id="countNote"></p>
+          <div id="shirtNote"></div>
+        </div>
+
+        <div class="card" id="scanCard" aria-live="polite"></div>
+      </div>
+
+      <div class="card cal-card">
+        <p class="label">Last 4 weeks</p>
+        <div class="cal" id="cal"></div>
+        <p class="hint" id="calNote"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="shared.js"></script>
+  <script src="member.js"></script>
+</body>
+</html>
